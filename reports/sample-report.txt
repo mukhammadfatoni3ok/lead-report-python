@@ -1,0 +1,25 @@
+Lead Report Generator
+=====================
+Date: 2026-09-22
+
+Summary
+-------
+Total leads: 5
+Total error logs: 1
+Total warning logs: 1
+
+Latest Leads
+------------
+Budi | budi@example.com | WhatsApp
+Sari | sari@example.com | Website
+Andi | andi@example.com | Instagram
+Rina | rina@example.com | Facebook Ads
+Dewi | dewi@example.com | Referral
+
+Error Logs
+----------
+ERROR: Failed to send notification
+
+Warning Logs
+------------
+WARNING: Email field is empty for one lead

@@ -1,3 +1,6 @@
 .venv/
 __pycache__/
 *.pyc
+
+reports/report-*.txt
+!reports/sample-report.txt
