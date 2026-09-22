@@ -1,0 +1,5 @@
+Budi | budi@example.com | WhatsApp
+Sari | sari@example.com | Website
+Andi | andi@example.com | Instagram
+Rina | rina@example.com | Facebook Ads
+Dewi | dewi@example.com | Referral

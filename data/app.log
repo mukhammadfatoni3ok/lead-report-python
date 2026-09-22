@@ -1,0 +1,7 @@
+INFO: Application started
+INFO: Lead form loaded
+INFO: New lead received from WhatsApp
+WARNING: Email field is empty for one lead
+INFO: Report page opened
+ERROR: Failed to send notification
+INFO: Application finished
