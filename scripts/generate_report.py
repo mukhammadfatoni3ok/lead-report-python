@@ -1,16 +1,48 @@
 import csv
 from datetime import date
+from pathlib import Path
 
-leads_file = "data/leads.csv"
-log_file = "data/app.log"
+leads_file = Path("data/leads.csv")
+log_file = Path("data/app.log")
+reports_folder = Path("reports")
 
 today = date.today()
-report_file = f"reports/report-{today}.txt"
+report_file = reports_folder / f"report-{today}.txt"
+
+if not leads_file.exists():
+    print("ERROR: Leads file not found.")
+    print("Expected file:", leads_file)
+    print("Please create data/leads.csv first.")
+    exit()
+
+if not log_file.exists():
+    print("ERROR: Log file not found.")
+    print("Expected file:", log_file)
+    print("Please create data/app.log first.")
+    exit()
+
+if not reports_folder.exists():
+    print("Reports folder not found. Creating reports folder...")
+    reports_folder.mkdir()
 
 leads = []
 
 with open(leads_file, "r") as file:
     reader = csv.DictReader(file)
+
+    if reader.fieldnames is None:
+        print("ERROR: CSV file is empty.")
+        print("Please add header and lead data to data/leads.csv.")
+        exit()
+
+    required_columns = ["name", "email", "source", "status"]
+
+    for column in required_columns:
+        if column not in reader.fieldnames:
+            print("ERROR: Missing CSV column:", column)
+            print("Expected columns:", required_columns)
+            print("Found columns:", reader.fieldnames)
+            exit()
 
     for row in reader:
         leads.append(row)
@@ -19,6 +51,11 @@ with open(log_file, "r") as file:
     logs = file.readlines()
 
 total_leads = len(leads)
+
+if total_leads == 0:
+    print("ERROR: No leads found in CSV file.")
+    print("Please add at least one lead to data/leads.csv.")
+    exit()
 
 new_count = 0
 contacted_count = 0
