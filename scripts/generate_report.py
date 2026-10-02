@@ -135,3 +135,6 @@ with open(report_file, "w") as report:
             report.write(warning + "\n")
 
 print("Report created:", report_file)
+print("Total leads:", total_leads)
+print("Error logs:", len(error_logs))
+print("Warning logs:", len(warning_logs))
